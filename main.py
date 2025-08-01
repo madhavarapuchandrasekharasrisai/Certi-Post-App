@@ -13,7 +13,7 @@ from PIL import Image, ImageEnhance, ImageFilter
 def get_openai_client():
     return OpenAI(
         base_url=st.secrets["openai"]["base_url"],
-        api_key=st.secrets["openai"]["api_key"],
+        api_key=st.secrets["openai"]["api_key"]
     )
 
 client = get_openai_client()
@@ -112,8 +112,15 @@ st.markdown("""
         @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } animation-duration: 0.5s; }
         @keyframes buttonPulse { animation-duration: 1.5s; } /* Shorter pulse */
         @keyframes subtleGradient { animation-duration: 5s; } /* Shorter gradient animation */
-        /* Collapse sidebar by default on mobile */
-        section[data-testid="stSidebar"] { width: 100% !important; }
+        /* Hide sidebar on mobile devices by default */
+        section[data-testid="stSidebar"] {
+            display: none !important; /* Completely hide the sidebar */
+        }
+        /* Adjust the main content to take full width since sidebar is hidden */
+        div[data-testid="stAppViewContainer"] > div {
+            width: 100% !important;
+            margin-left: 0 !important;
+        }
     }
     .main-heading {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -555,7 +562,7 @@ else:
         st.markdown('<h2 class="section-title">📘 Generate GitHub README</h2>', unsafe_allow_html=True)
         st.markdown("""
         <div class="uploader-container">
-            <p class="upload-instruction">🗂️ Upload your Main Project File and get a clean, professional GitHub README — generated just for you in seconds! — all in one click!</p>
+            <p class="upload-instruction">🗂️ Upload your " Main Project File " and get a clean, professional GitHub README — generated just for you in seconds! — all in one click!</p>
         </div>
         """, unsafe_allow_html=True)
         st.markdown("<br><br>", unsafe_allow_html=True)
@@ -577,7 +584,7 @@ else:
                 with cols[0]:
                     if st.button("🔄 Regenerate README"):
                         if 'readme_text' in st.session_state:
-                         del st.session_state.readme_text
+                            del st.session_state.readme_text
                         st.rerun()
 
                 if 'readme_text' not in st.session_state:
