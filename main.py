@@ -566,7 +566,7 @@ else:
         </div>
         """, unsafe_allow_html=True)
         st.markdown("<br><br>", unsafe_allow_html=True)
-        file = st.file_uploader("GitHub Project",label_visibility="hidden",help=" Only Upload Main Project File to generate your README")
+        file = st.file_uploader("GitHub Project",label_visibility="hidden",help=" Only Upload Main Project File (With in 100 KB) to generate your README")
         if file:
             try:
                 # Detect file change for regeneration
