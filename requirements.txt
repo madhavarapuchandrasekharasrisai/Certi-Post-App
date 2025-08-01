@@ -1,0 +1,7 @@
+streamlit>=1.33.0
+pymupdf>=1.23.0        # For PDF processing (fitz)
+streamlit-lottie       # For Lottie animations
+openai>=1.0.0          # For OpenRouter-compatible API
+Pillow>=10.0.0         # For image processing
+pdf2image              # If you're converting PDFs to images
+requests               # For HTTP requests (used in OpenRouter or future APIs)
