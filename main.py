@@ -154,8 +154,9 @@ st.markdown("""
         cursor: pointer;
         transition: all 0.3s ease;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        width: 100%; /* Full width within column */
-        margin: 10px 5px; /* Spacing between buttons */
+        width: auto; /* Changed to auto for natural sizing and centering */
+        margin: 10px auto; /* Centers the button horizontally */
+        display: block; /* Treats button as block for better centering */
         animation: buttonPulse 2s infinite; /* Restored pulse animation for buttons */
     }
     .stButton > button:hover {
@@ -252,6 +253,35 @@ st.markdown("""
     }
     .stButton > button[key="back_button"]:hover {
         background-color: #e9ecef !important;
+    }
+    /* Dark mode adjustments */
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #121212; /* Dark background for body */
+        }
+        .main {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%); /* Darker gradient for main container */
+        }
+        .main-heading {
+            color: transparent; /* Keep transparent for clip effect */
+            background: linear-gradient(135deg, #000000 0%, #333333 100%); /* Dark gradient resulting in black/dark gray text */
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        .main-subheading {
+            color: #b0b0b0; /* Lighter gray for subheading visibility */
+        }
+        /* Optional: Adjust other elements like buttons for dark mode */
+        .stButton > button {
+            background-color: #3f51b5; /* Slightly darker blue */
+            color: #ffffff;
+        }
+        .upload-instruction {
+            color: #ddd; /* Lighter text for visibility */
+        }
+        .section-title {
+            color: #5c6bc0; /* Keep blue but adjustable */
+        }
     }
 </style>
 """, unsafe_allow_html=True)
