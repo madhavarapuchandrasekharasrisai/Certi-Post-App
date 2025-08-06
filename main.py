@@ -126,7 +126,7 @@ st.markdown("""
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 3rem;
         font-weight: 700;
-        color: transparent;
+        color: black;
         background: linear-gradient(135deg, #3f51b5 0%, #5c6bc0 100%);
         -webkit-background-clip: text;
         background-clip: text;
@@ -144,6 +144,8 @@ st.markdown("""
     }
     /* Style for Streamlit buttons to match action-button class */
     .stButton > button {
+        justify-content: center;
+        align-items: center;
         background-color: #5c6bc0; /* Professional blue */
         color: white;
         font-size: 1.2rem;
