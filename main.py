@@ -65,8 +65,6 @@ def render_sidebar():
             st.error("Please Fill the Field, or Email us if you want to contact.")
         else:
             st.success("Bug Reported, Email us if you want to contact.")
-
-# Enhanced CSS with better mobile responsiveness
 st.markdown("""
 <style>
     /* Global styles */
@@ -91,7 +89,9 @@ st.markdown("""
             padding: 10px; /* Slightly more padding on mobile for better touch usability */
             min-height: auto; /* Flexible height on small screens */
         }
-        .main-heading { font-size: 2rem; } /* Smaller heading for mobiles */
+        .main-heading { font-size: 2rem;
+            color: #000000 !important;
+            background-color: #FFFFFF !important; } 
         .main-subheading { font-size: 1.1rem; margin-bottom: 30px; }
         .stButton > button {
             width: 100%; /* Full width for easy tapping */
@@ -126,13 +126,13 @@ st.markdown("""
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 3rem;
         font-weight: 700;
-        color: transparent;
+        color: white;
         background: linear-gradient(135deg, #3f51b5 0%, #5c6bc0 100%);
         -webkit-background-clip: text;
         background-clip: text;
         letter-spacing: 1px;
         margin-bottom: 10px;
-        animation: fadeInDown 1s ease-out;
+
     }
     .main-subheading {
         font-size: 1.5rem;
@@ -158,6 +158,16 @@ st.markdown("""
         margin: 10px auto; /* Centers the button horizontally */
         display: block; /* Treats button as block for better centering */
         animation: buttonPulse 2s infinite; /* Restored pulse animation for buttons */
+    }
+    div.stButton {
+        display: flex;
+        justify-content: center; /* Centers horizontally */
+    }
+    .stButton button {
+        width: auto; /* Only as wide as content */
+        min-width: 150px; /* Optional: makes them look balanced */
+        margin: 0 auto;
+        display: inline-block;
     }
     .stButton > button:hover {
         background-color: #3f51b5; /* Darker blue on hover */
@@ -199,6 +209,7 @@ st.markdown("""
         animation: slideInLeft 1s ease-out; /* Restored slide-in animation for titles */
     }
     /* Restored Animations */
+            
     @keyframes fadeInDown {
         from { opacity: 0; transform: translateY(-20px); }
         to { opacity: 1; transform: translateY(0); }
@@ -257,21 +268,19 @@ st.markdown("""
     /* Dark mode adjustments */
     @media (prefers-color-scheme: dark) {
         body {
-            background-color: #121212; /* Dark background for body */
+            background-color: #1C1C1C; /* Dark background for body */
         }
         .main {
             background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%); /* Darker gradient for main container */
         }
         .main-heading {
-            color: #000000 ; /* Keep transparent for clip effect */
-            background: linear-gradient(135deg, #000000 0%, #333333 100%); /* Dark gradient resulting in black/dark gray text */
-            -webkit-background-clip: text;
-            background-clip: text;
+            color: #000; /* Solid black as requested */
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
         }
         .main-subheading {
             color: #b0b0b0; /* Lighter gray for subheading visibility */
         }
-        /* Optional: Adjust other elements like buttons for dark mode */
+            
         .stButton > button {
             background-color: #3f51b5; /* Slightly darker blue */
             color: #ffffff;
@@ -284,7 +293,8 @@ st.markdown("""
         }
     }
 </style>
-""", unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
+
 
 
 # Homepage content
@@ -593,7 +603,7 @@ else:
         st.markdown('<h2 class="section-title">📘 Generate GitHub README</h2>', unsafe_allow_html=True)
         st.markdown("""
         <div class="uploader-container">
-            <p class="upload-instruction">🗂️ Upload your Main Project File and get a clean, professional GitHub README — generated just for you in seconds! — all in one click!</p>
+            <p class="upload-instruction">🗂️ Upload your " Main Project File " and get a clean, professional GitHub README — generated just for you in seconds! — all in one click!</p>
         </div>
         """, unsafe_allow_html=True)
         st.markdown("<br><br>", unsafe_allow_html=True)
