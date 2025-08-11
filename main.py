@@ -187,7 +187,6 @@ st.markdown("""
         background-clip: text;
         letter-spacing: 0.5px;
     }
-    
     .uploader-container {
         border: 2px dashed #5c6bc0; /* Dashed border for visual appeal */
         border-radius: 10px;
